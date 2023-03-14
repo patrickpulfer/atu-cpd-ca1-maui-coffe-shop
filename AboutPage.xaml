@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoffeeShop.AboutPage"
+             Title="About">
+    <StackLayout 
+        Margin="40"
+        Spacing="40">
+
+        <Image 
+            Source="icon_user.png"
+            HeightRequest="200"/>
+
+        <StackLayout Spacing="10">
+            <Label 
+            Text="Your Name"
+            />
+
+            <Entry Placeholder="Enter your Name"/>
+        </StackLayout>
+
+
+        <StackLayout Spacing="10">
+            <Label 
+            Text="Your Phone Number"
+            />
+
+            <Entry Placeholder="Enter your Phone number"/>
+        </StackLayout>
+
+        <Button Text="Update" />
+
+    </StackLayout>
+</ContentPage>

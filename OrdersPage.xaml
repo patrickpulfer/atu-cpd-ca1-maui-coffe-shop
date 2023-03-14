@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CoffeeShop.ViewModel"
+             xmlns:models="clr-namespace:CoffeeShop.Models"
+             x:Class="CoffeeShop.OrdersPage"
+             x:DataType="viewmodel:OrdersPageViewModel"
+             Title="OrdersPage">
+
+
+    <Grid>
+
+        <Image Aspect="AspectFill" Source="coffee_shop_background.jpg" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        <ScrollView>
+            <StackLayout Spacing="20" HorizontalOptions="CenterAndExpand">
+
+                <Image Source="logo_large.png" Margin="10" HeightRequest="100" WidthRequest="100"/>
+
+
+                <Label Text="Previous Orders" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" Padding="0,10,0,0">
+                    <Label.Shadow>
+                        <Shadow Brush="#000000" Offset="10,10" Opacity="0.8"/>
+                    </Label.Shadow>
+                </Label>
+
+
+                <StackLayout Margin="5">
+                    <Border Background="black" Padding="10">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10,10,10,10" />
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <HorizontalStackLayout Spacing="10">
+
+                                <StackLayout Spacing="20">
+
+                                    <Label Text="{Binding JsonFileContent}" TextColor="White" FontSize="14" />
+
+                                </StackLayout>
+
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

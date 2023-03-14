@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CoffeeShop.ViewModel"
+             x:Class="CoffeeShop.UserProfilePage"
+             Title="Your Profile Page"
+             x:DataType="viewmodel:UserProfileViewModel">
+    
+    <StackLayout 
+        Margin="40"
+        Spacing="40">
+
+        <Image 
+            Source="{Binding UserAvatar}" 
+            HeightRequest="200"/>
+
+        <StackLayout Spacing="10">
+            <Label 
+            Text="Your Name"
+            />
+
+            <Entry Placeholder="Enter your Name"
+                   Text="{Binding UserName}"/>
+        </StackLayout>
+
+
+        <StackLayout Spacing="10">
+            <Label 
+            Text="Your Phone Number"
+            />
+
+            <Entry Placeholder="Enter your Phone number"
+                   Text="{Binding UserPhone}"/>
+        </StackLayout>
+
+        <Button Text="Update"
+                Command="{Binding UpdateUserDetailsCommandCommand}"/>
+
+    </StackLayout>
+    
+</ContentPage>

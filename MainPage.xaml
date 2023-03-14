@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoffeeShop.MainPage">
+
+    <Grid>
+
+        <Image Aspect="AspectFill" 
+               Source="coffee_shop_background.jpg" 
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        
+        <StackLayout Spacing="20"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand">
+
+            <Image Source="logo_large.png"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   />
+
+
+
+            <Label Text="Februrary Specials" 
+                       TextColor="White"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Padding="0,20,0,0">
+                <Label.Shadow>
+                    <Shadow Brush="#000000"
+                                Offset="10,10"
+                                Opacity="0.8"/>
+                </Label.Shadow>
+            </Label>
+
+            
+        </StackLayout>
+       
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CoffeeShop.ViewModel"
+             xmlns:models="clr-namespace:CoffeeShop.Models"
+             x:Class="CoffeeShop.CartPage"
+             x:DataType="viewmodel:CartViewModel"
+             Title="CartPage"
+             BackgroundColor="{AppThemeBinding Light=#efefef,Dark=Black}">
+
+
+    <Grid>
+
+        <Image Aspect="AspectFill" 
+               Source="coffee_shop_background.jpg" 
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <ScrollView>
+            <StackLayout Spacing="20"
+                     HorizontalOptions="CenterAndExpand">
+
+                <Image Source="icon_basket.png"
+                   Margin="10"
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   />
+
+
+                <Label Text="Your Cart" 
+                       TextColor="White"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Padding="0,10,0,0">
+                    <Label.Shadow>
+                        <Shadow Brush="#000000"
+                                Offset="20,20"
+                                Opacity="1"/>
+                    </Label.Shadow>
+                </Label>
+
+                <Border Background="black"
+                                    Padding="10"
+                                    >
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10,10,10,10" />
+                    </Border.StrokeShape>
+                    
+                    <CollectionView ItemsSource="{Binding Checkout_list}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Checkout">
+
+
+                            <StackLayout Margin="5">
+                              
+
+                                    <VerticalStackLayout Spacing="10" VerticalOptions="Start">
+
+                                        <HorizontalStackLayout Spacing="10">
+                                            <Image Source="{Binding Image}"
+                                           HeightRequest="100"
+                                           WidthRequest="100"
+                                           Aspect="AspectFill" />
+
+                                            <StackLayout Spacing="20">
+
+                                                <Label Text="{Binding Name}"
+                                        TextColor="White"
+                                        FontSize="18"
+                                        FontAttributes="Bold"
+                                        />
+                                                <HorizontalStackLayout Spacing="5">
+                                            <Label Text="Quantity: "
+                                                    TextColor="White"
+                                                    FontSize="14" />
+                                                <Label Text="{Binding Quantity}"
+                                        TextColor="White"
+                                        FontSize="14" />
+                                                </HorizontalStackLayout>
+
+
+                                                <HorizontalStackLayout Spacing="5">
+                                                    <Label Text="Price: "
+                                                    TextColor="White"
+                                                    FontSize="14" />
+                                                    <Label Text="{Binding Price, StringFormat='{}{0:c}'}"
+                                        TextColor="White"
+                                        FontSize="14" />
+                                                </HorizontalStackLayout>
+
+                                            </StackLayout>
+
+                                        </HorizontalStackLayout>
+
+                                    </VerticalStackLayout>
+
+
+                               
+
+                            </StackLayout>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </Border>
+                <Border Background="black"
+                                    Padding="10"
+                                    >
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10,10,10,10" />
+                    </Border.StrokeShape>
+                    <HorizontalStackLayout Spacing="5">
+                        <Label TextColor="White" Text="Total: " />
+                        <Label TextColor="White" Text="{Binding TotalPrice, StringFormat='{}{0:c}'}" />
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Background="black"
+                                    Padding="10"
+                                    >
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10,10,10,10" />
+                    </Border.StrokeShape>
+                        <Label TextColor="White" Text="{Binding Ordered}" />
+                </Border>
+                
+                <Button Text="Refresh Basket" Command="{Binding Refresh} "></Button>
+                <Button Text="Order" Command="{Binding Order}"></Button>
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+
+
+</ContentPage>
+
+

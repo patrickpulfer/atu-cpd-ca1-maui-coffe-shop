@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:CoffeeShop.ViewModel"
+             xmlns:models="clr-namespace:CoffeeShop.Models"
+             x:Class="CoffeeShop.MenuFoodPage"
+             x:DataType="viewmodel:MenuViewModel"
+             Title="Food Menu">
+
+    <Grid>
+
+        <Image Aspect="AspectFill" Source="coffee_shop_background.jpg" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+        <ScrollView>
+            <StackLayout Spacing="20" HorizontalOptions="CenterAndExpand">
+                <Image Source="logo_large.png" Margin="10" HeightRequest="100" WidthRequest="100"/>
+
+                <Label Text="Food Menu" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" Padding="0,10,0,0">
+                    <Label.Shadow>
+                        <Shadow Brush="#000000" Offset="10,10" Opacity="0.8"/>
+                    </Label.Shadow>
+                </Label>
+
+                <CollectionView ItemsSource="{Binding FoodMenuCollection}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:MenuModel">
+
+                            <StackLayout Margin="5">
+                                <Border Background="black" Padding="10">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10,10,10,10" />
+                                    </Border.StrokeShape>
+
+                                    <VerticalStackLayout Spacing="10">
+                                        
+                                        <HorizontalStackLayout Spacing="10">
+                                            
+                                            <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150" Aspect="AspectFill" />
+                                            
+                                            <StackLayout Spacing="20">
+                                                
+                                                <Label Text="{Binding Name}" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Description}" TextColor="White" FontSize="14" />
+                                                <Label Text="{Binding Price, StringFormat='{}{0:c}'}" TextColor="White" FontSize="14" />
+                                                
+                                            </StackLayout>
+                                            
+                                        </HorizontalStackLayout>
+                                        
+                                        <Button Text="Add to Cart" CommandParameter="{Binding ProductID}" Command="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.AddToCart}" />
+                                        
+                                    </VerticalStackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CoffeeShop.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CoffeeShop"
+    FlyoutBehavior="Flyout"
+    >
+
+    <!-- local:MainPage -->
+
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Image Source="logo_large.png"
+                   HeightRequest="150"
+                   WidthRequest="150"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Welcome"
+                Icon="icon_star.png">
+        <ShellContent Title="Welcome" Icon="icon_star.png"
+            ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Menu" Icon="icon_coffee.png">
+        <ShellContent Title="Hot Drinks" Icon="icon_coffee.png" ContentTemplate="{DataTemplate local:MenuHotPage}" Route="MenuHotPage"/>
+        <ShellContent Title="Food" Icon="icon_food.png" ContentTemplate="{DataTemplate local:MenuFoodPage}" Route="MenuFoodPage"/>
+        <ShellContent Title="Cold Drinks" Icon="icon_beverages.png" ContentTemplate="{DataTemplate local:MenuColdPage}" Route="MenuColdPage" />
+        <ShellContent Title="Your Basket" Icon="icon_basket.png" ContentTemplate="{DataTemplate local:CartPage}" Route="CartPage"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Your Account"
+                Icon="icon_user.png">
+        <ShellContent Title="Profile" Icon="icon_user.png"
+            ContentTemplate="{DataTemplate local:UserProfilePage}" 
+            Route="UserProfilePage"/>
+        <ShellContent Title="Previous Orders" Icon="icon_reciept.png"
+            ContentTemplate="{DataTemplate local:OrdersPage}" 
+                      Route="OrdersPage"/>
+    </FlyoutItem>
+
+
+    <Shell.FlyoutFooter>
+        <Grid>
+            <Label Text="Test" />
+            <Image Source="coffee_horizontal.jpg" />
+        </Grid>
+    </Shell.FlyoutFooter>
+
+</Shell>
